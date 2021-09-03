@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "mooney"
+version = "0.1.0"
+description = "personal mooney manager"
+authors = ["Pratik Gorade <me@prkprime.dev>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.68.1"
+sqlmodel = "^0.0.4"
+uvicorn = "^0.15.0"
+gunicorn = "^20.1.0"
+
+[tool.poetry.dev-dependencies]
+black = "^21.8b0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
