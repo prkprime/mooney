@@ -2,7 +2,20 @@ import logging
 import sys
 
 from fastapi import FastAPI
+from decouple import config, UndefinedValueError
 from starlette.middleware.cors import CORSMiddleware
+
+
+def check_env_vars():
+    try:
+        config("database_url")
+    except UndefinedValueError as e:
+        sys.exit(e)
+    except Exception as e:
+        sys.exit(e)
+
+
+check_env_vars()
 
 # from app.api.api_v1.api import api_router
 
