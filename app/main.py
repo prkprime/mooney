@@ -5,6 +5,9 @@ from fastapi import FastAPI
 from decouple import config, UndefinedValueError
 from starlette.middleware.cors import CORSMiddleware
 
+from models import *
+from database import create_db_and_tables
+
 
 def check_env_vars():
     try:
@@ -36,6 +39,12 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.on_event("startup")
+def on_startup():
+    create_db_and_tables()
+
 
 # app.include_router(api_router, prefix="/api/v1/")
 
