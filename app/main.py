@@ -5,8 +5,8 @@ from fastapi import FastAPI
 from decouple import config, UndefinedValueError
 from starlette.middleware.cors import CORSMiddleware
 
-from models import *
-from database import create_db_and_tables
+from .models import Salary
+from .database import create_db_and_tables
 
 
 def check_env_vars():
@@ -20,7 +20,7 @@ def check_env_vars():
 
 check_env_vars()
 
-# from app.api.api_v1.api import api_router
+from app.api.v1.api import api_router
 
 logging.basicConfig(
     format="[%(levelname)s] (%(asctime)s) %(module)s:%(pathname)s:%(funcName)s:%(lineno)s:: %(message)s",
@@ -46,6 +46,6 @@ def on_startup():
     create_db_and_tables()
 
 
-# app.include_router(api_router, prefix="/api/v1/")
+app.include_router(api_router, prefix="/api/v1")
 
 logging.info("Starting application")
