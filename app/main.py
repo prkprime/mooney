@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from decouple import config, UndefinedValueError
 from starlette.middleware.cors import CORSMiddleware
 
-from .models import Salary
+from .models import Income
 from .database import create_db_and_tables
 
 

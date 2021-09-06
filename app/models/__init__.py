@@ -1,1 +1,1 @@
-from .salary import Salary
+from .income import Income, IncomeRead, IncomeCreate, IncomeUpdate
