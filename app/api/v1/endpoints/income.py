@@ -52,3 +52,17 @@ def patch_income(income_id: int, income: IncomeUpdate):
         s.commit()
         s.refresh(income_db)
         return income_db
+
+
+@router.delete("/income/{income_id}", response_model=IncomeRead)
+def delete_income(income_id: int):
+    with Session(engine) as s:
+        income_db = s.get(Income, income_id)
+        if not income_db:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="income transaction with given id does not exist",
+            )
+        s.delete(income_db)
+        s.commit()
+        return income_db
