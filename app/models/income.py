@@ -24,9 +24,9 @@ class IncomeCreate(IncomeBase):
     pass
 
 
-class IncomeUpdate:
+class IncomeUpdate(SQLModel):
     date: Optional[date]
     category: Optional[str]
-    From: Optional[str]
+    source: Optional[str]
     description: Optional[str]
     amount: Optional[float]
