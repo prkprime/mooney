@@ -1,8 +1,7 @@
 from fastapi import APIRouter
 
-from .endpoints import income, expense
+from .endpoints import transaction
 
 api_router = APIRouter()
 
-api_router.include_router(income.router, tags=["Income"])
-api_router.include_router(expense.router, tags=["Expense"])
+api_router.include_router(transaction.router, tags=["Transaction"])
