@@ -36,7 +36,7 @@ def get_single_transaction(transaction_id: int):
         if not transaction_db:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
-                detail="transaction transaction with given id does not exist",
+                detail="transaction with given id does not exist",
             )
         return transaction_db
 
@@ -48,7 +48,7 @@ def patch_transaction(transaction_id: int, transaction: TransactionUpdate):
         if not transaction_db:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
-                detail="transaction transaction with given id does not exist",
+                detail="transaction with given id does not exist",
             )
         transaction_data = transaction.dict(exclude_unset=True)
         print(transaction_data)
@@ -66,7 +66,7 @@ def delete_transaction(transaction_id: int):
         if not transaction_db:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
-                detail="transaction transaction with given id does not exist",
+                detail="transaction with given id does not exist",
             )
         s.delete(transaction_db)
         s.commit()

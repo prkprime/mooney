@@ -6,15 +6,15 @@ authors = ["Pratik Gorade <me@prkprime.dev>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.9"
-fastapi = "^0.68.1"
-sqlmodel = "^0.0.4"
-uvicorn = "^0.15.0"
+python = "^3.10.1"
+fastapi = "^0.70.1"
+sqlmodel = "^0.0.6"
+uvicorn = "^0.16.0"
 gunicorn = "^20.1.0"
-python-decouple = "^3.4"
+python-decouple = "^3.5"
 
 [tool.poetry.dev-dependencies]
-black = "^21.8b0"
+black = "^21.12b0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
