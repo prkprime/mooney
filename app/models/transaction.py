@@ -1,5 +1,3 @@
-from typing import Optional
-
 import enum
 
 from sqlmodel import SQLModel, Field
@@ -15,12 +13,12 @@ class TransactionBase(SQLModel):
     date: date
     category: TransactionType
     source: str
-    description: Optional[str]
+    description: str | None
     amount: float
 
 
 class TransactionDatabase(TransactionBase, table=True):
-    id: Optional[int] = Field(default=None, primary_key=True)
+    id: int | None = Field(default=None, primary_key=True)
 
 
 class TransactionRead(TransactionBase):
@@ -32,8 +30,8 @@ class TransactionCreate(TransactionBase):
 
 
 class TransactionUpdate(SQLModel):
-    date: Optional[date]
-    category: Optional[TransactionType]
-    source: Optional[str]
-    description: Optional[str]
-    amount: Optional[float]
+    date: date | None
+    category: TransactionType | None
+    source: str | None
+    description: str | None
+    amount: str | None
